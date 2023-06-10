@@ -6,12 +6,12 @@
 # Deploy
 
 1. Download repo:
-```
+```bash
 git clone <target>
 ```
 
 2. Install packages:
-```
+```bash
 npm install
 ```
 
@@ -23,17 +23,17 @@ npm install
 >You probably should change container `--publish` port and `.env` URL port, if you already have something on `5400`. But if so, suppose you know the deal already
 
 4. Start **Docker-containers** (or start your own **Postgre server**):
-```
+```bash
 npm run dev:up
 ```
 
 5. Migrate your DB from `/source/prisma/schema.prisma`:
-```
+```bash
 npm run dev:db:migrate
 ```
 
 6. You are ready to run the app:
-```
+```bash
 npm run dev
 ```
 
@@ -44,7 +44,7 @@ Default creds are:
 ```
 Engine: PostreSQL
 Server: postgres
-username: dev
-password: localpass
-database: dev
+Username: dev
+Password: localpass
+Database: dev
 ```
