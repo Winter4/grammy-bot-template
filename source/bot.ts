@@ -21,12 +21,7 @@ async function main() {
   const bot = new Bot<CustomContext>(config.telegram.botToken);
 
   // apply pre-scenes middlewares
-  bot.use(
-    ...preMiddlewares(clients, {
-      errorChatId: config.telegram.errorChatId,
-      adminChatId: config.telegram.adminChatId,
-    })
-  );
+  bot.use(...preMiddlewares(clients, config.telegram));
 
   bot.use(commands);
 
