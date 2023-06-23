@@ -1,6 +1,6 @@
 import pino from "pino";
 import { PrismaClient } from "@prisma/client";
-import { Redis } from "ioredis";
+//import { Redis } from "ioredis";
 
 import type { BotConfig } from "./config";
 
@@ -24,6 +24,7 @@ function getDatabaseClient(config: BotConfig["database"]) {
 
 // - - - - - - - //
 
+/*
 type RedisClient = ReturnType<typeof getRedisClient>;
 function getRedisClient(config: BotConfig["redis"]) {
   const client = config.prefix
@@ -32,19 +33,20 @@ function getRedisClient(config: BotConfig["redis"]) {
 
   return client;
 }
+*/
 
 // - - - - - - - //
 
 export type BotClients = {
   logger: LoggerClient;
   database: DatabaseClient;
-  redis: RedisClient;
+  //redis: RedisClient;
 };
 export async function getClients(config: BotConfig): Promise<BotClients> {
   const clients: BotClients = {
     logger: getLoggerClient(),
     database: getDatabaseClient(config.database),
-    redis: getRedisClient(config.redis),
+    //redis: getRedisClient(config.redis),
   };
 
   if (clients.logger) {
@@ -55,6 +57,7 @@ export async function getClients(config: BotConfig): Promise<BotClients> {
   }
 
   // redis checks
+  /*
   const tmp = "test";
   await clients.redis.set(tmp, tmp);
   if ((await clients.redis.get(tmp)) === tmp) {
@@ -71,6 +74,7 @@ export async function getClients(config: BotConfig): Promise<BotClients> {
     }
   }
   await clients.redis.del(tmp);
+  */
 
   return clients;
 }

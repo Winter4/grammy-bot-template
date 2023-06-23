@@ -49,6 +49,7 @@ function getDatabaseConfig(): DatabaseConfig {
 
 // - - - - - - - //
 
+/*
 type RedisConfig = {
   url: string;
   prefix?: string;
@@ -63,6 +64,7 @@ function getRedisConfig(): RedisConfig {
 
   return config;
 }
+*/
 
 // - - - - - - - //
 
@@ -70,13 +72,13 @@ export type BotConfig = {
   deploy: DeployConfig;
   telegram: TelegramConfig;
   database: DatabaseConfig;
-  redis: RedisConfig;
+  //redis: RedisConfig;
 };
 export function getConfig(): BotConfig {
   return {
     deploy: getDeployConfig(),
     telegram: getTelegramConfig(),
     database: getDatabaseConfig(),
-    redis: getRedisConfig(),
+    //redis: getRedisConfig(),
   };
 }
