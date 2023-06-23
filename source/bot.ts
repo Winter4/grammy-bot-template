@@ -23,6 +23,7 @@ async function main() {
   // apply pre-scenes middlewares
   bot.use(...preMiddlewares(clients, config.telegram));
 
+  // apply handlers
   bot.use(commands);
 
   // error handler
