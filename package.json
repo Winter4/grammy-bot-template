@@ -5,7 +5,7 @@
   "main": "bot.js",
   "scripts": {
     "dev": "npx nodemon source/bot.ts | pino-pretty --translateTime",
-    "dev:up": "docker compose -f docker/docker-compose.yml up -d",
+    "dev:up": "docker compose -f docker/docker-compose.yml up -d --remove-orphans",
     "dev:down": "docker compose -f docker/docker-compose.yml down",
     "dev:db:migrate": "npx prisma migrate dev",
     "prepare": "husky install"
